@@ -308,6 +308,12 @@ abstract class AbstractContent implements Hydratable
             Assert::string($data['status']);
             $content->setLatest($data['status'] === 'current');
         }
+        if(isset($data['ancestors'])) {
+            Assert::isArray($data['ancestors']);
+            $content->setAncestors(array_map(function ($item) {
+                return (int)$item['id'];
+            }, $data['ancestors']));
+        }
 
         return $content;
     }

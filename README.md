@@ -12,7 +12,7 @@ An Object Oriented wrapper for Confluence
 ## Installation
 
 ```bash
-$ composer require cloudplaydev/confluence-php-client
+$ composer require slavytuch/confluence-php-client
 ```
 
 ## Usage

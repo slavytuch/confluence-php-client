@@ -44,7 +44,7 @@ class Content extends AbstractApi
     /**
      * default value for expand query parameter
      */
-    private const DEFAULT_EXPAND = 'space,version,body.storage,container';
+    private const DEFAULT_EXPAND = 'space,version,body.storage,container,ancestors';
     private const DEFAULT_HISTORY_EXPAND = 'content,content.space,content.version,content.body.storage,content.container';
 
     /**
