@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace CloudPlayDev\ConfluenceClient;
 
 use CloudPlayDev\ConfluenceClient\Api\Content;
+use CloudPlayDev\ConfluenceClient\Api\Restriction;
 use CloudPlayDev\ConfluenceClient\HttpClient\Builder;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\AddHostPlugin;
@@ -94,5 +95,10 @@ class ConfluenceClient
         if (!empty($userInfo) && str_contains($userInfo, ':')) {
             $this->httpClientBuilder->addPlugin(new AuthenticationPlugin(new BasicAuth(...explode(':', $userInfo, 2))));
         }
+    }
+
+    public function restriction(): Restriction
+    {
+        return new Restriction($this);
     }
 }
