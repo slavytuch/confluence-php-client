@@ -6,7 +6,7 @@ class Restriction extends AbstractApi
 {
     public function getByOperation(int $contentId)
     {
-        $response = $this->httpGet('/content/' . $contentId . '/restriction/byOperation');
+        $response = $this->httpGet(self::getRestfulUri('content', $contentId, 'restriction', 'byOperation'));
 
         $this->handleErrors($response);
 
@@ -15,7 +15,7 @@ class Restriction extends AbstractApi
 
     public function getForOperation(int $contentId, string $operationKey)
     {
-        $response = $this->httpGet('/content/' . $contentId . '/restriction/byOperation/' . $operationKey);
+        $response = $this->httpGet(self::getRestfulUri('content', $contentId, 'restriction', $operationKey));
 
         $this->handleErrors($response);
 
@@ -24,7 +24,7 @@ class Restriction extends AbstractApi
 
     public function update(int $conentId, array $restrictions)
     {
-        $response = $this->httpPut('/content/' . $conentId . '/restriction', $restrictions);
+        $response = $this->httpPut(self::getRestfulUri('content', $conentId, 'restriction'), $restrictions);
 
         $this->handleErrors($response);
 
